@@ -1,0 +1,10 @@
+#!/bin/bash
+
+#sv start socklog-unix || exit 1
+
+source /etc/envvars
+
+airflow initdb
+
+exec 2>&1
+exec airflow webserver -p 8080
